@@ -1,0 +1,45 @@
+fint:
+  adapter:
+    id: unique-id-name
+    username:
+    password:
+    base-url:
+    org-id: fintlabs.no
+    registration-id: fint
+    heartbeat-interval: 1
+    capabilities:
+      # TODO: Some resources have the same name, which makes the map not have unique identifiers
+      # Make capabilities be a list of CapabilityResource?
+      elevfravar:
+        domain-name: utdanning
+        package-name: vurdering
+        resource-name: elevfravar
+        fullSyncIntervalInDays: 7
+        deltaSyncInterval: IMMEDIATE
+      fravarsoversikt:
+        domain-name: utdanning
+        packageName: vurdering
+        resource-name: fravarsoversikt
+        fullSyncIntervalInDays: 7
+        deltaSyncInterval: IMMEDIATE
+      samtykke:
+        domain-name: personvern
+        packageName: samtykke
+        resource-name: samtykke
+        fullSyncIntervalInDays: 7
+        deltaSyncInterval: IMMEDIATE
+
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          fint-idp:
+            token-uri: https://idp.felleskomponent.no/nidp/oauth/nam/token
+        registration:
+          fint:
+            authorization-grant-type: password
+            client-id:
+            client-secret:
+            provider: fint-idp
+            scope: fint-adapter
