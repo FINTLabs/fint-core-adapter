@@ -8,24 +8,9 @@ fint:
     registration-id: fint
     heartbeat-interval: 1
     capabilities:
-      # TODO: Some resources have the same name, which makes the map not have unique identifiers
-      # Make capabilities be a list of CapabilityResource?
-      elevfravar:
-        domain-name: utdanning
+      - domain-name: utdanning
         package-name: vurdering
-        resource-name: elevfravar
-        fullSyncIntervalInDays: 7
-        deltaSyncInterval: IMMEDIATE
-      fravarsoversikt:
-        domain-name: utdanning
-        packageName: vurdering
-        resource-name: fravarsoversikt
-        fullSyncIntervalInDays: 7
-        deltaSyncInterval: IMMEDIATE
-      samtykke:
-        domain-name: personvern
-        packageName: samtykke
-        resource-name: samtykke
+        resource: elevfravar
         fullSyncIntervalInDays: 7
         deltaSyncInterval: IMMEDIATE
 
